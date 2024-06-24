@@ -1,0 +1,77 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "podcastgenerator/podcastgenerator",
+    "description": "Open Source Podcast Publishing Solution since 2006",
+    "version": "3.2.0",
+    "type": "project",
+    "keywords": [
+        "podcast",
+        "podcasting",
+        "website generator"
+    ],
+    "homepage": "https://podcastgenerator.net",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Chris Charabaruk",
+            "homepage": "https://chris.charabaruk.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Emil Engler",
+            "homepage": "http://www.emilengler.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Alberto Betella",
+            "homepage": "https://betella.net",
+            "role": "Original developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/PodcastGenerator/PodcastGenerator/issues",
+        "source": "https://github.com/PodcastGenerator/PodcastGenerator"
+    },
+    "autoload": {
+        "classmap": [
+            "core/",
+            "admin/models"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "../tests/"
+        ]
+    },
+    "require": {
+        "php": ">=8.0",
+        "ext-fileinfo": "*",
+        "ext-gettext": "*",
+        "ext-simplexml": "*",
+        "composer/installers": "~1.9.0",
+        "james-heinrich/getid3": "~1.9.19",
+        "podcastindex/podcastindex-php": "~1.0",
+        "lootils/uuid": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "squizlabs/php_codesniffer": "^3.6",
+        "phpunit/phpunit": "^9.5",
+        "phpunit/php-code-coverage": "^9.2",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "8.0"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --testdox --log-junit ../test-results/junit.xml --coverage-clover ../test-results/clover.xml --coverage-html ../test-results/coverage --coverage-filter ./core ../tests",
+        "test-ci": "phpunit --no-interaction --testdox -c ../phpunit.xml.dist ../tests"
+    }
+}
